@@ -8,10 +8,10 @@
 import Foundation
 class Complex{
     var re = 0.0
-    var im = 0.1
+    var im = 0.0
     
     init(re: Double = 0.0, im: Double = 0.0) {
-        self.Re = Re
+        self.re = re
         self.im = im
     }
     
@@ -20,6 +20,10 @@ class Complex{
         re += amount
      
     }
+    
+    let value = incrementReBy(by: 2.2)
+    print(value)
+    
     func incrementImBy(by amount: Double)
     
     {
@@ -51,6 +55,7 @@ class Complex{
     {
         return Complex(re: re + amount.re, im: im + amount.im)
     }
+ 
     
 }
     
