@@ -8,7 +8,7 @@
 import Foundation
 class Complex{
     var re = 0.0
-    var im = 0.0
+    var im = 0.1
     
     init(re: Double = 0.0, im: Double = 0.0) {
         self.Re = Re
