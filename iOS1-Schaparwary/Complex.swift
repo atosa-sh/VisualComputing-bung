@@ -2,10 +2,17 @@
 //  Complex.swift
 //  iOS1-Schaparwary
 //
-//  Created by Atosa Shahparvari on 22.10.25.
+//  
 //
 
 import Foundation
+
+
+func readDouble() -> Double //RückgabeWert = String
+{
+    return Double(readLine() ?? "") ?? 0 //Nil-Coalescing-Operator.Wenn readLine() nil ist, benutze ""
+}
+
 class Complex{
     var re = 0.0
     var im = 0.0
@@ -21,8 +28,7 @@ class Complex{
      
     }
     
-    let value = incrementReBy(by: 2.2)
-    print(value)
+    
     
     func incrementImBy(by amount: Double)
     
@@ -39,15 +45,20 @@ class Complex{
     
     func multiplyBy(by amount: Complex)
     {
-        re *= amount.re
-        im *= amount.im
+        let newRe = self.re * amount.re - self.im * amount.im
+        let newIm = self.re * amount.im + self.im * amount.re
+               
+        self.re = newRe
+        self.im = newIm
+        
     }
     
-    func rotateBy(by amount: Complex)
-    {
-        re *= amount.re * amount.im
-        let newim = re * amount.im * amount.re
-        im = newim
+    func rotateBy(by angle: Double) {
+        let cos = cos(angle)
+        let sin = sin(angle)
+        
+        multiplyBy(by: Complex(re: cos, im: sin))
+        
         
     }
     
@@ -55,7 +66,17 @@ class Complex{
     {
         return Complex(re: re + amount.re, im: im + amount.im)
     }
+    
+    var description: String {
+           return "\(re) + \(im)i"
+       }
  
+   
+    
+    
     
 }
+
+
+
     
